@@ -8,6 +8,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,14 +18,18 @@ public class MainActivity extends AppCompatActivity {
     private Boolean FabClosed=true;
     private Animation rotate_forward, rotate_backward, fab_open, fab_close;
     private FloatingActionButton fab, fabL, fabR, fabL2, fabR2;
-    private TextView textView;
+    private TextView textView, textView2;
+    LinearLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        relativeLayout = (LinearLayout) findViewById(R.id.activity_main);
+
         textView= (TextView) findViewById(R.id.textView);
+        textView2 = (TextView) findViewById(R.id.textView2);
         fab= (FloatingActionButton) findViewById(R.id.fab);
         fabL= (FloatingActionButton) findViewById(R.id.fabL);
         fabR= (FloatingActionButton) findViewById(R.id.fabR);
@@ -55,21 +61,25 @@ public class MainActivity extends AppCompatActivity {
             case R.id.fabL2:
             {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+                relativeLayout.setBackgroundColor(getResources().getColor(R.color.color1));
                 break;
             }
             case R.id.fabL:
             {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 45);
+                relativeLayout.setBackgroundColor(getResources().getColor(R.color.color2));
                 break;
             }
             case R.id.fabR:
             {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 65);
+                relativeLayout.setBackgroundColor(getResources().getColor(R.color.color3));
                 break;
             }
             case R.id.fabR2:
             {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 95);
+                relativeLayout.setBackgroundColor(getResources().getColor(R.color.color4));
                 break;
             }
         }
